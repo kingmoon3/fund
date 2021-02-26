@@ -12,7 +12,7 @@
 '''
 import requests
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 import js2py
 import json
 import time
@@ -37,10 +37,10 @@ def crawlbyPage(totalPage):
         time.sleep(random.randint(5,8))
 
 def crawl_details(fund_ids):
-    chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    # Chrome driver download path: https://chromedriver.chromium.org/downloads
-    driver = webdriver.Chrome('/Users/chenhui/Code/fund/chromedriver', chrome_options=chrome_options)
+    options = Options()
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
+    driver = webdriver.Firefox(executable_path='geckodriver', options=options)
     fund_details = []
     for fund_id in fund_ids:
         # 基金代码
