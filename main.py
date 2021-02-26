@@ -100,6 +100,9 @@ def main():
     df = pd.merge(df, df_filter, on='基金代码')
     choose_columns = ['基金代码','基金名称','规模','近1年' , '近2年', '近3年', '今年来', '成立来','从业时间','基金经理规模']
     print(df.loc[:, choose_columns])
+    df2 = df.loc[:, choose_columns]
+    df2.to_excel(excel_writer="result.xlsx", index=False)
+
     
     
     
