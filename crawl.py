@@ -49,7 +49,7 @@ def crawl_details(fund_ids):
         driver.get("http://fund.eastmoney.com/%s.html" % fund_id)
         time.sleep(random.randint(3,5))
         # 保存请求的html文件，方便回溯数据
-        with open('./fund_detail/%s.html' % fund_id, 'w') as f:
+        with open('./fund_detail/%s.html' % fund_id, 'w', encoding='utf-8') as f:
             f.write(driver.page_source)
         # 通过xpath获取 基金规模、经理、经理年限、经理同时管理的基金数,经理星级
         xpaths = [
